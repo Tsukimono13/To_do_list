@@ -6,3 +6,26 @@
 .App > div {
   margin-right: 50px;
 }
+
+.isDone {
+  text-decoration: line-through;
+
+}
+
+.notIsDone {
+  font-weight: bold;
+}
+
+.activeFilter {
+  color: white;
+  font-weight: bold;
+  background-color: crimson;
+  border-color: crimson;
+border: 3px solid crimson;
+  outline-color: crimson;
+}
+
+.inputError {
+  border: 3px solid red;
+  outline-color: red;
+}
