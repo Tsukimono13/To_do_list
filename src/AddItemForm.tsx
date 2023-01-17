@@ -1,7 +1,9 @@
 import React, {ChangeEvent, KeyboardEvent, useState} from 'react';
+import Button from '@mui/material/Button';
+import TextField from '@mui/material/TextField';
 
 type PropsType = {
-    callBack: (title: string)=>void
+    callBack: (title: string) => void
 
 }
 const AddItemForm = (props: PropsType) => {
@@ -10,7 +12,7 @@ const AddItemForm = (props: PropsType) => {
 
     const onClickAddTaskTodoListHandler = () => {
         const trimmedTitle = title.trim()
-        if(trimmedTitle){
+        if (trimmedTitle) {
             props.callBack(trimmedTitle)
         } else {
             setError(true)
@@ -18,25 +20,35 @@ const AddItemForm = (props: PropsType) => {
         setTitle("")
     }
 
-    const onChangeSetLocalTitleHandler = (e: ChangeEvent<HTMLInputElement>) =>
-    {error && setError(false)
+    const onChangeSetLocalTitleHandler = (e: ChangeEvent<HTMLInputElement>) => {
+        error && setError(false)
         setTitle(e.currentTarget.value)
     }
 
-    const onKeyDownAddTaskToDoListHandler = (e: KeyboardEvent<HTMLInputElement>) => {e.key === "Enter" && onClickAddTaskTodoListHandler()}
-    const errorInputClasses = error ? "inputError" : undefined
-    const errorMessage = error && <p style={{color: "red", margin: "0"}}>Please, enter task title</p>
+    const onKeyDownAddTaskToDoListHandler = (e: KeyboardEvent<HTMLInputElement>) => {
+        e.key === "Enter" && onClickAddTaskTodoListHandler()
+    }
+
+    const buttonStyle = {
+        maxWidth: '37px',
+        maxHeight: '37px',
+        minWidth: '37px',
+        minHeight: '37px',
+        background: 'pink'
+    }
 
     return (
         <div>
-            <input
+            <TextField
+                size={"small"}
+                id="outlined-basic"
+                label={error? "Title is required" : "Please, enter your Title"}
+                variant="outlined"
                 value={title}
                 onChange={onChangeSetLocalTitleHandler}
                 onKeyDown={onKeyDownAddTaskToDoListHandler}
-                className={errorInputClasses}
             />
-            <button onClick={onClickAddTaskTodoListHandler}>+</button>
-            {errorMessage}
+            <Button variant="contained" style={buttonStyle} onClick={onClickAddTaskTodoListHandler}>+</Button>
         </div>
     );
 };
