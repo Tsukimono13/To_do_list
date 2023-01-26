@@ -28,7 +28,6 @@ export type TaskType = {
     isDone: boolean
 }
 
-
 const TodoList = (props: TodoListPropsType) => {
 
 
@@ -79,9 +78,9 @@ const TodoList = (props: TodoListPropsType) => {
                 {tasksItems}
             </ul>
             <div>
-                <Button variant={props.filter === "all" ?"outlined" :"contained"}  onClick={getOnClickSetFilterHandler("all", props.todolistId)} color="success">All</Button>
-                <Button variant={props.filter === "active" ?"outlined" :"contained"}  onClick={getOnClickSetFilterHandler("active", props.todolistId)} color="error">Active</Button>
-                <Button variant={props.filter === "completed" ?"outlined" :"contained"}   onClick={getOnClickSetFilterHandler("completed", props.todolistId)} color="secondary">Completed</Button>
+                <Button variant={props.filter === "all" ?"outlined" :"contained"}  onClick={getOnClickSetFilterHandler("all", props.todolistId)} >All</Button>
+                <Button variant={props.filter === "active" ?"outlined" :"contained"}  onClick={getOnClickSetFilterHandler("active", props.todolistId)} >Active</Button>
+                <Button variant={props.filter === "completed" ?"outlined" :"contained"}   onClick={getOnClickSetFilterHandler("completed", props.todolistId)}>Completed</Button>
 
 
 

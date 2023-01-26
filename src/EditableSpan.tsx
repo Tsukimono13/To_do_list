@@ -7,7 +7,7 @@ type PropsType = {
 }
 
 const EditableSpan = (props: PropsType) => {
-    const [edit, setEdit] = useState(false)
+    let [edit, setEdit] = useState(false)
     let [newTitle, setNewTitle] = useState<string>(props.oldTitle)
     const onDoubleClickHandler = () => {
         setEdit(!edit)

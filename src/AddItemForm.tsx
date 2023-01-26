@@ -4,7 +4,6 @@ import TextField from '@mui/material/TextField';
 
 type PropsType = {
     callBack: (title: string) => void
-
 }
 const AddItemForm = (props: PropsType) => {
     let [title, setTitle] = useState<string>("")
@@ -34,7 +33,7 @@ const AddItemForm = (props: PropsType) => {
         maxHeight: '37px',
         minWidth: '37px',
         minHeight: '37px',
-        background: 'pink'
+        background: '#3aa8c9ee'
     }
 
     return (
