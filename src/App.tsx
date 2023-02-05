@@ -5,9 +5,6 @@ import {v1} from "uuid";
 import AddItemForm from "./AddItemForm";
 import ButtonAppBar from "./ButtonAppBar";
 import {Container, Grid, Paper} from "@mui/material";
-import {TasksReducer} from "./state/tasksReducer";
-import {TodolistReducer} from "./state/todolist-reducer";
-
 
 export type TodolistsType = {
     id: string,
@@ -15,7 +12,9 @@ export type TodolistsType = {
     filter: FilterValuesType
 }
 export type FilterValuesType = "all" | "active" | "completed"
-
+export type TasksStateType = {
+    [key: string]: Array<TaskType>
+}
 
 function App() {
 
@@ -27,7 +26,7 @@ function App() {
          {id: todolistID2, title: 'What to buy', filter: 'all'},
      ])
 
-  let [tasks, setTasks] = useState({
+  let [tasks, setTasks] = useState<TasksStateType>({
          [todolistID1]: [
              {id: v1(), title: "HTML&CSS", isDone: true},
              {id: v1(), title: "JS", isDone: true},
@@ -61,7 +60,7 @@ function App() {
     const removeTask = (todolistId: string, taskId: string) => {
         setTasks({...tasks, [todolistId]: tasks[todolistId].filter(el => el.id !== taskId)})
     }
-    const addTask = (todolistId: string, title: string) => {
+    const addTask = (title: string, todolistId: string ) => {
         const newTask: TaskType = {
             id: v1(),
             title: title,
