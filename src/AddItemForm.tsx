@@ -1,31 +1,35 @@
-import React, {ChangeEvent, KeyboardEvent, useState} from 'react';
+import React, {ChangeEvent, KeyboardEvent, memo, useState} from 'react';
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 
 type PropsType = {
     callBack: (title: string) => void
 }
-const AddItemForm = (props: PropsType) => {
-    let [title, setTitle] = useState<string>("")
-    let [error, setError] = useState<boolean>(false)
+export const AddItemForm = memo((props: PropsType) => {
+    console.log("AddItemForm")
+    let [title, setTitle] = useState("")
+    let [error, setError] = useState<string | null>(null)
 
     const onClickAddTaskTodoListHandler = () => {
-        const trimmedTitle = title.trim()
-        if (trimmedTitle) {
-            props.callBack(trimmedTitle)
+        if (title.trim() !== "") {
+            props.callBack(title);
+            setTitle("");
         } else {
-            setError(true)
+            setError("Title is required");
         }
-        setTitle("")
     }
 
     const onChangeSetLocalTitleHandler = (e: ChangeEvent<HTMLInputElement>) => {
-        error && setError(false)
         setTitle(e.currentTarget.value)
     }
 
     const onKeyDownAddTaskToDoListHandler = (e: KeyboardEvent<HTMLInputElement>) => {
-        e.key === "Enter" && onClickAddTaskTodoListHandler()
+       if (error !== null) {
+           setError(null);
+       }
+       if (e.key === "Enter"){
+           onClickAddTaskTodoListHandler()
+       }
     }
 
     const buttonStyle = {
@@ -50,6 +54,6 @@ const AddItemForm = (props: PropsType) => {
             <Button variant="contained" style={buttonStyle} onClick={onClickAddTaskTodoListHandler}>+</Button>
         </div>
     );
-};
+});
 
 export default AddItemForm;

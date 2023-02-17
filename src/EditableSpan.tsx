@@ -1,4 +1,4 @@
-import React, {ChangeEvent, useState} from 'react';
+import React, {ChangeEvent, memo, useState} from 'react';
 
 type PropsType = {
     oldTitle: string
@@ -6,7 +6,7 @@ type PropsType = {
 
 }
 
-const EditableSpan = (props: PropsType) => {
+const EditableSpan = memo((props: PropsType) => {
     let [edit, setEdit] = useState(false)
     let [newTitle, setNewTitle] = useState<string>(props.oldTitle)
 
@@ -26,6 +26,6 @@ const EditableSpan = (props: PropsType) => {
             ? <input value={newTitle} onChange={onChangeSetLocalTitleHandler} onBlur={onDoubleClickHandler} autoFocus/>
             : <span onDoubleClick={onDoubleClickHandler}>{props.oldTitle}</span>
     );
-};
+});
 
 export default EditableSpan;
