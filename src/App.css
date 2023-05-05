@@ -1,30 +1,26 @@
+/*
 .App {
-
+  padding: 30px;
+  display: flex;
 }
 
 .App > div {
   margin-right: 50px;
 }
 
-.isDone {
-  text-decoration: line-through;
-
+.error {
+  border: red 1px solid;
 }
 
-.notIsDone {
-  font-weight: bold;
+.error-message {
+  color: red;
 }
 
-.activeFilter {
-  color: white;
-  font-weight: bold;
-  background-color: crimson;
-  border-color: crimson;
-border: 3px solid crimson;
-  outline-color: crimson;
+.active-filter {
+  background-color: aquamarine;
 }
 
-.inputError {
-  border: 3px solid red;
-  outline-color: red;
+.is-done {
+  opacity: 0.5;
 }
+*/
