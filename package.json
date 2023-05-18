@@ -1,6 +1,6 @@
 {
   "name": "it-incubator-todolist-ts",
-  "homepage":"https://tsukimono13.github.io/To_do_list/",
+  "homepage": "https://tsukimono13.github.io/To_do_list/",
   "jest": {
     "moduleNameMapper": {
       "axios": "axios/dist/node/axios.cjs"
