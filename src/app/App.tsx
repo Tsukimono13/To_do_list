@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, HashRouter, Route, Routes } from "react-router-dom";
 import { AppBar, Button, CircularProgress, Container, IconButton, LinearProgress, Toolbar } from "@mui/material";
 import { Menu } from "@mui/icons-material";
 import { Login } from "features/auth/Login/Login";
@@ -34,7 +34,7 @@ function App() {
   }
 
   return (
-    <BrowserRouter>
+    <HashRouter>
       <div className="App">
         <ErrorSnackbar />
         <AppBar position="static">
@@ -57,7 +57,7 @@ function App() {
           </Routes>
         </Container>
       </div>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 
